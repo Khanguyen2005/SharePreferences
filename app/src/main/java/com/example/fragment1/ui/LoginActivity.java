@@ -38,13 +38,15 @@ public class LoginActivity extends AppCompatActivity {
             String savedUsername = sharedPref.getString("USERNAME_KEY", "");
             String savedPassword = sharedPref.getString("PASSWORD_KEY", "");
 
-            // Kiểm tra thông tin đăng nhập
-            if (username.equals(savedUsername) && password.equals(savedPassword)) {
-                Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_LONG).show();
-                Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(i);
-            } else {
-                Toast.makeText(getApplicationContext(), "Tên đăng nhập hoặc mật khẩu không đúng", Toast.LENGTH_LONG).show();
+            if(checkUserName(username) && checkPassword(password)){
+                // Kiểm tra thông tin đăng nhập từ SharePreferences
+                if (username.equals(savedUsername) && password.equals(savedPassword)) {
+                    Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(i);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Tên đăng nhập hoặc mật khẩu không đúng", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
