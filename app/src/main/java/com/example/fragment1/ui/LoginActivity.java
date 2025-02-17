@@ -1,6 +1,8 @@
 package com.example.fragment1.ui;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,16 +33,18 @@ public class LoginActivity extends AppCompatActivity {
             String username = editUser.getText().toString().trim();
             String password = editPass.getText().toString().trim();
 
-            // checkLogin
-            if (checkUserName(username) && checkPassword(password)) {
-                Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_LONG).show();
+            // Đọc dữ liệu từ SharedPreferences
+            SharedPreferences sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            String savedUsername = sharedPref.getString("USERNAME_KEY", "");
+            String savedPassword = sharedPref.getString("PASSWORD_KEY", "");
 
-                // sẽ làm gì đó
-                //
-                // để làm sau
-                // đăng nhập thành công, qua trang mới
+            // Kiểm tra thông tin đăng nhập
+            if (username.equals(savedUsername) && password.equals(savedPassword)) {
+                Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_LONG).show();
                 Intent i = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(i);
+            } else {
+                Toast.makeText(getApplicationContext(), "Tên đăng nhập hoặc mật khẩu không đúng", Toast.LENGTH_LONG).show();
             }
         });
 
