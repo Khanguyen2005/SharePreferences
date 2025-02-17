@@ -1,0 +1,50 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.InfoFragment">
+
+    <!-- LinearLayout để căn giữa các TextView -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <!-- TextView cho thông báo fragment -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Info"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="#6200EE"
+            android:padding="16dp"/>
+
+        <!-- Hiển thị tên người dùng -->
+        <TextView
+            android:id="@+id/txtUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User name: username1"
+            android:textColor="#E91E63"
+            android:textSize="18sp"
+            android:layout_marginTop="32dp"
+            android:gravity="center"/>
+
+        <!-- Hiển thị email -->
+        <TextView
+            android:id="@+id/txtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email: email1"
+            android:textColor="#E91E63"
+            android:textSize="18sp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+</FrameLayout>
